@@ -1,0 +1,13 @@
+#!/usr/bin/awk -f
+
+function NcmpcppPlaying() {
+    while("ncmpcpp --now-playing"|getline) {
+        for(i = 2; i<=NF; i++) {
+            printf $i" "
+        }
+    }
+}
+
+BEGIN {
+    NcmpcppPlaying()
+}

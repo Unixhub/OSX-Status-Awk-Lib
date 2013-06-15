@@ -1,0 +1,14 @@
+#!/usr/bin/awk -f
+
+function MemUsage() {
+    while("vm_stat"|getline) {
+        if(/Pages active/) {
+            t = $3
+            printf("%.0fmb", t*0.004);
+        }
+    }
+}
+
+BEGIN {
+    MemUsage()
+}

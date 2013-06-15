@@ -1,0 +1,15 @@
+#!/usr/bin/awk -f
+
+function DiskInfo() {
+    while("df"|getline) {
+        if(/disk0s2/) {
+            t = $5;
+            sub(/%/,"", t);
+            printf t"%%"
+        }
+    }
+}
+
+BEGIN {
+    DiskInfo()
+}

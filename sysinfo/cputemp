@@ -1,0 +1,15 @@
+#!/usr/bin/awk -f
+#requires smc, can be found in my dotfiles
+
+function CpuTemp() {
+    while ("smc -f"|getline) {
+        if(/Temp         =/) {
+            t = $3
+        }
+    }
+    printf("%.0f\°", t)
+}
+
+BEGIN {
+    CpuTemp()
+}

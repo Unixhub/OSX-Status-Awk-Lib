@@ -1,0 +1,16 @@
+#!/usr/bin/awk -f 
+
+function BattInfo() {
+    while("pmset -g batt"|getline) {
+        if (/%/) {
+            t = $2
+            sub(/;/,"", t); 
+            sub(/%/,"", t);
+            printf t"%%"
+        }
+    }
+}
+
+BEGIN {
+    BattInfo()
+}

@@ -1,0 +1,14 @@
+#!/usr/bin/awk -f
+
+function Volume() { 
+    while("ioreg -c IOAudioLevelControl"|getline) {
+        if(/IOAudioControlValue/) {
+            t = $8
+        }
+    }
+    printf("%.0f%%", t/64*100);
+}
+
+BEGIN {
+    Volume()
+}

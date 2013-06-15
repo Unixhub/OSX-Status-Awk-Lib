@@ -1,0 +1,11 @@
+#!/usr/bin/awk -f
+
+function TimeDate() {
+    while("date \"+%d/%H:%M\""|getline) {
+        printf $0 
+    }
+}
+
+BEGIN {
+    TimeDate()
+}

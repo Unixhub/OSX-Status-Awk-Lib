@@ -1,0 +1,14 @@
+#!/usr/bin/awk -f
+#requires the program smc, can be found in my dotfiles.
+
+function FanSpeed() {
+    while("smc -f"|getline) {
+        if(/Actual/) {
+            printf $4"rpm"
+        }
+    }
+}
+
+BEGIN {
+    FanSpeed()
+}
