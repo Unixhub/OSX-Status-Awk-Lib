@@ -4,7 +4,7 @@ This lib uses one-true-awk, default on osx.
 
 Files:
 
- ── music            
+┌ ── music            
 │   ├── cmus                
 │   ├── lastfm                   
 │   └── ncmpcpp               
