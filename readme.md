@@ -1,6 +1,6 @@
 # OS X Status Awk Lib
 
-This lib uses one-true-awk.
+This lib uses one-true-awk, default on osx.
 
 Files:
 
