@@ -1,0 +1,11 @@
+#!/usr/bin/awk -f
+
+function ip() {
+    while("curl -s http://ipecho.net/plain"|getline) {
+        print;
+    }
+}
+
+BEGIN {
+    ip();
+}
