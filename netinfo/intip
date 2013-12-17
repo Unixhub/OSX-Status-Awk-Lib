@@ -1,0 +1,13 @@
+#!/usr/bin/awk -f
+
+function intip() {
+    while("ifconfig"|getline) {
+        if(/inet/&&!/inet6|127/) {
+            print $2;
+        }
+    }
+}
+
+BEGIN {
+    intip();
+}
